@@ -51,6 +51,31 @@ describe("ejercicios de objetos 2", function(){
     });
 });
 
+//ejercicio3
+function palabras(arreglo)
+{
+	var palabra = new Object();
+	for(var i = 0; i<arreglo.length; i++)
+		{
+			var j = i +1;
+			palabra["propiedad" + j]= arreglo[i];
+		}
+		var respuesta = Object.keys(palabra);//aqui imprimimos ["propiedad" + j]
+		//esto funciona aparte
+		var acumulador = "";
+		for(var z = 0; z < respuesta.length ; z++)
+		{
+			acumulador += respuesta[z] + "-->" + arreglo[z] + ";";
+		}
+		return acumulador.substr(0,acumulador.length -1);
+}
+//pruebas unitarias del ejercicio 3
+describe("ejercicios de objetos 3", function(){
+  it("de [6,5,4,3,2,1]", function(){
+    assert.equal("propiedad1-->6;propiedad2-->5;propiedad3-->4;propiedad4-->3;propiedad5-->2;propiedad6-->1",
+  palabras([6,5,4,3,2,1]));
+  })
+});
 //ejercicio4
 function Informe(nombre, apellido, edad, genero, ciudad, pais)
 {
